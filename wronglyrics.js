@@ -9,16 +9,25 @@ function getDataFromApi(searchTerm, callback) {
             apikey: '758a9c4eb110abe05628670f79cacb15',
             q: searchTerm,
             format: "jsonp",
-            callback: "jsonp_callback",
-            f_has_lyrics: searchTerm
+            callback: " "
+            // f_has_lyrics: searchTerm,
+            // lyrics object parameters
+            // track_id: The musiXmatch track id,
+            // track_mbid: The musicbrainz track id,
+            // format: Decide the output type(json or xml)
         },
         url: "http://api.musixmatch.com/ws/1.1/track.search"
     }).done(function(data) {
-        console.log(data);
+     var dataString = data.slice(2, -2);
+
+
+        console.log(JSON.parse(dataString));
 
     })
 }
-
+function jsonp_callback(data){
+console.log(data);
+}
 // SHOW SEARCH RESULTS
 function displayMusixMatchData(data) {
     console.log(data);
