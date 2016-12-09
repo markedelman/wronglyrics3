@@ -9,7 +9,8 @@ function getDataFromApi(searchTerm, callback) {
             apikey: '758a9c4eb110abe05628670f79cacb15',
             q: searchTerm,
             format: "jsonp",
-            callback: "jsonp_callback"
+            callback: "jsonp_callback",
+            f_has_lyrics: searchTerm
         },
         url: "http://api.musixmatch.com/ws/1.1/track.search"
     }).done(function(data) {
